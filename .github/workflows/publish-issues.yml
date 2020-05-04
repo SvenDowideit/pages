@@ -18,10 +18,9 @@ jobs:
         bin/hub issue --format "<span><h2><a href='%U'>%t</a> %cr</h2><div>%b</div></span>%n" >>index.html
         echo "/<body>" >>index.html
         echo "/<html>" >>index.html
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: stefanzweifel/git-auto-commit-action@v4.1.6
       with:
         commit_message: Update index.html
         branch: ${{ github.head_ref }}
-
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
