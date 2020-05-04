@@ -14,7 +14,7 @@ jobs:
         cat templates/head.tmpl > index.html
         echo "<body>" >>index.html
         cat templates/navbar.tmpl >> index.html
-        echo "<main>" >>index.html
+        echo "<main style='padding-top: 90px;'>" >>index.html
         bin/hub issue --format "$(cat templates/issues.tmpl)" >>index.html
         echo "</main>" >>index.html
         echo "/<body>" >>index.html
