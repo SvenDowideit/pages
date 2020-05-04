@@ -11,10 +11,9 @@ jobs:
       shell: bash
       run: |
         curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
-        echo > index.html
-        echo "<html>" >>index.html
-        echo "<title>Could this be enough?</title>" >>index.html
+        cat templates/head.tmpl > index.html
         echo "<body>" >>index.html
+        echo "<h1>Could this be enough?</h1>" >>index.html
         bin/hub issue --format "<span><h2><a href='%U'>%t</a> %cr</h2><div>%b</div></span>%n" >>index.html
         echo "/<body>" >>index.html
         echo "/<html>" >>index.html
