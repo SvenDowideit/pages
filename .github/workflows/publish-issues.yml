@@ -17,8 +17,9 @@ jobs:
         echo "<main style='padding-top: 90px;'>" >>index.html
         bin/hub issue --format "$(cat templates/issues.tmpl)" >>index.html
         echo "</main>" >>index.html
-        echo "/<body>" >>index.html
-        echo "/<html>" >>index.html
+        cat templates/footer.tmpl >> index.html
+        echo "</body>" >>index.html
+        echo "</html>" >>index.html
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: stefanzweifel/git-auto-commit-action@v4.1.6
