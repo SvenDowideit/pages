@@ -14,7 +14,9 @@ jobs:
         cat templates/head.tmpl > index.html
         echo "<body>" >>index.html
         cat templates/navbar.tmpl >> index.html
+        echo "<main>" >>index.html
         bin/hub issue --format "$(cat templates/issues.tmpl)" >>index.html
+        echo "</main>" >>index.html
         echo "/<body>" >>index.html
         echo "/<html>" >>index.html
       env:
